@@ -758,5 +758,16 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
+<script>
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      gtag('event', 'project_click', {
+        project_name: card.querySelector('.project-title').textContent.trim(),
+        project_number: card.querySelector('.project-num').textContent.trim(),
+        project_url: card.href
+      });
+    });
+  });
+</script>
 </body>
 </html>
